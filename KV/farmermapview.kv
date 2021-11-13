@@ -1,0 +1,17 @@
+#:import MapView kivy.garden.mapviewCustom.MapView
+
+<FarmersMapView>:
+	print("We zooming...")
+	#zoom: 10
+	self.on_zoom:
+		print("We zooming...")
+		#self.zoom = 10 if self.zoom < 10 else self.zoom
+
+	on_zoom:
+		self.zoom = 9 if self.zoom > 9 else self.zoom
+
+	on_lat:
+		self.start_getting_markets_in_fov()
+
+	on_lon:
+		self.start_getting_markets_in_fov()
